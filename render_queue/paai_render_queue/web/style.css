@@ -1,0 +1,132 @@
+:root {
+  --bg: #1a1a1a;
+  --panel: #242424;
+  --panel2: #2b2b2b;
+  --line: #3a3a3a;
+  --text: #e8e8e8;
+  --muted: #9a9a9a;
+  --orange: #F28C28;
+  --orange-dim: #5a3d1e;
+  --ok: #6bcb77;
+  --run: #4ea1ff;
+  --fail: #ff5c5c;
+  --paused: #c9a227;
+  --queued: #aaa;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
+  font: 13px/1.4 "Segoe UI", "DejaVu Sans", system-ui, sans-serif; }
+button, input, select { font: inherit; color: inherit; }
+.top {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 10px 16px; background: var(--panel2); border-bottom: 1px solid var(--line);
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.logo { height: 30px; width: auto; display: block; }
+.title { color: var(--orange); font-weight: 700; letter-spacing: .02em; font-size: 15px; }
+.sub { color: var(--muted); font-size: 11px; }
+.top-actions { display: flex; gap: 8px; }
+.btn {
+  background: #3a3a3a; border: 1px solid #111; color: var(--text);
+  padding: 6px 12px; border-radius: 6px; cursor: pointer;
+}
+.btn:hover { background: #454545; }
+.btn.primary { background: var(--orange-dim); border-color: #F28C2855; color: #ffe0b0; }
+.btn.primary:hover { background: #6a4a28; }
+.btn.ghost { background: transparent; }
+.btn.tiny { padding: 3px 8px; font-size: 11px; }
+.btn.danger { background: #4a2020; border-color: #ff5c5c55; color: #ffb0b0; }
+
+main { display: grid; grid-template-rows: auto 1fr 220px; height: calc(100% - 58px); gap: 0; }
+.toolbar {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  padding: 8px 16px; border-bottom: 1px solid var(--line); background: var(--panel);
+}
+.filters { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.filters input[type=search] {
+  background: #1e1e1e; border: 1px solid #111; border-radius: 6px; padding: 4px 8px; min-width: 220px;
+}
+.hint { color: var(--muted); font-size: 11px; }
+.table-wrap { overflow: auto; padding: 0 8px; }
+.jobs { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.jobs th {
+  position: sticky; top: 0; background: #303030; text-align: left; padding: 8px 8px;
+  border-bottom: 1px solid var(--line); font-weight: 600; z-index: 1;
+}
+.jobs td {
+  padding: 8px; border-bottom: 1px solid #2a2a2a; vertical-align: middle;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.jobs tr:hover td { background: #2a2a2a; }
+.jobs tr.sel td { background: #3a2a18; }
+.jobs tr.sel td:first-child { box-shadow: inset 3px 0 0 var(--orange); }
+
+.badge {
+  display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600;
+  background: #333; color: #ddd;
+}
+.badge.queued { background: #333; color: var(--queued); }
+.badge.running { background: #1a334d; color: var(--run); }
+.badge.done { background: #1e3a24; color: var(--ok); }
+.badge.failed { background: #3a1a1a; color: var(--fail); }
+.badge.cancelled { background: #333; color: #888; }
+.badge.paused { background: #3a3218; color: var(--paused); }
+
+.app-tag { text-transform: uppercase; font-size: 10px; letter-spacing: .06em; color: var(--orange); font-weight: 700; }
+.bar {
+  height: 8px; background: #1a1a1a; border-radius: 4px; overflow: hidden; border: 1px solid #111; min-width: 90px;
+}
+.bar > i { display: block; height: 100%; background: linear-gradient(90deg, var(--orange-dim), var(--orange)); width: 0%; }
+.pct { font-size: 11px; color: var(--muted); margin-left: 6px; }
+.actions { display: flex; gap: 4px; flex-wrap: wrap; }
+
+.detail {
+  border-top: 1px solid var(--line); background: var(--panel); display: flex; flex-direction: column; min-height: 0;
+}
+.detail-hd { display: flex; justify-content: space-between; padding: 8px 16px; border-bottom: 1px solid var(--line); }
+.muted { color: var(--muted); }
+.log {
+  margin: 0; padding: 10px 16px; flex: 1; overflow: auto; background: #141414; color: #cfcfcf;
+  font: 11px/1.45 ui-monospace, "DejaVu Sans Mono", monospace; white-space: pre-wrap;
+}
+
+.modal {
+  position: fixed; inset: 0; background: #0008; display: flex; align-items: center; justify-content: center; z-index: 50;
+}
+.modal.hidden { display: none; }
+.modal-card {
+  width: min(720px, 94vw); max-height: 90vh; background: var(--panel2); border: 1px solid var(--line);
+  border-radius: 10px; display: flex; flex-direction: column; box-shadow: 0 20px 60px #000a;
+}
+.modal-hd, .modal-ft {
+  display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--line);
+}
+.modal-ft { border-bottom: none; border-top: 1px solid var(--line); justify-content: flex-end; gap: 8px; }
+.modal-bd { padding: 14px 16px; overflow: auto; }
+.form-row { display: grid; grid-template-columns: 160px 1fr auto; gap: 8px; align-items: center; margin: 8px 0; }
+.form-row input, .form-row select {
+  background: #1e1e1e; border: 1px solid #111; border-radius: 6px; padding: 6px 8px; width: 100%;
+}
+.form-section { color: var(--orange); font-weight: 700; margin: 14px 0 6px; font-size: 12px; letter-spacing: .04em; }
+.server-row { display: grid; grid-template-columns: 1fr 2fr auto auto; gap: 6px; margin: 6px 0; }
+.help { color: var(--muted); font-size: 11px; margin-top: 4px; }
+
+
+.brand-mark { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+.brand-sub {
+  font-size: 9px; letter-spacing: 0.08em; color: #a87840; opacity: 0.9;
+  white-space: nowrap; line-height: 1.1; font-weight: 500;
+}
+.qstate {
+  display: inline-block; padding: 1px 8px; border-radius: 999px; font-weight: 700;
+  font-size: 11px; letter-spacing: .04em; text-transform: uppercase;
+  background: #333; color: #bbb;
+}
+.qstate.running { background: #1a334d; color: #4ea1ff; }
+.qstate.paused { background: #3a3218; color: #c9a227; }
+.qstate.stopped { background: #333; color: #999; }
+.auto-start { display: inline-flex; align-items: center; gap: 6px; color: #ccc; font-size: 12px; margin-right: 4px; }
+.badge.ready { background: #1e3a3a; color: #6bcbca; }
+.badge.waiting { background: #3a2a18; color: #f0c070; }
+.badge.killed { background: #3a1a1a; color: #ff8a8a; }
+.wait { color: #f0c070; font-size: 10px; }

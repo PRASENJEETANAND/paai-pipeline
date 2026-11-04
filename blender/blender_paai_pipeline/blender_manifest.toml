@@ -1,0 +1,19 @@
+schema_version = "1.0.0"
+
+id = "blender_paai_pipeline"
+version = "1.0.0"
+name = "PAAI Pipeline"
+tagline = "Shared show Render Browser, output paths, and Render Queue submit"
+maintainer = "PAAI <paai@local>"
+type = "add-on"
+website = "https://example.com/paai"
+tags = ["Render", "Pipeline"]
+blender_version_min = "4.2.0"
+# Keep legacy bl_info in __init__.py for Install Legacy Add-on / pre-4.2.
+
+license = [
+  "SPDX:MIT",
+]
+copyright = [
+  "2025 PAAI",
+]

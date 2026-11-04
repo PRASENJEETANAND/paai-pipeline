@@ -1,0 +1,7 @@
+# Optional but recommended for multi-layer EXR (AOV) support:
+OpenEXR>=3.2
+Imath
+# Already typical in ComfyUI; listed for completeness:
+# numpy
+# Pillow
+opencv-python-headless   # 16-bit / float PNG and TIFF, compression options, movie reading

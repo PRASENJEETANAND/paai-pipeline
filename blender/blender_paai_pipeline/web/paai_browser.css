@@ -1,0 +1,155 @@
+/* Nuke-matching dark gray + orange #f7931e (from shots.py STYLE/STYLE2) */
+.paai-rb-root, .paai-rb-root * { box-sizing: border-box; font-family: 'DejaVu Sans', 'Segoe UI', sans-serif; font-size: 12px; color: #d0d0d0; }
+.paai-rb-overlay { position: fixed; inset: 0; z-index: 10040; background: #00000066; display: flex; align-items: center; justify-content: center; }
+.paai-rb-root {
+  width: min(1300px, 96vw); height: min(860px, 92vh);
+  background: #323232; border: 1px solid #1a1a1a; border-radius: 4px;
+  box-shadow: 0 18px 48px #000a; display: flex; flex-direction: column; overflow: hidden;
+}
+.paai-rb-titlebar {
+  display: flex; align-items: center; justify-content: space-between;
+  background: #3c3c3c; padding: 6px 10px; border-bottom: 1px solid #1a1a1a; cursor: move; user-select: none;
+}
+.paai-rb-titlebar b { color: #f7931e; font-weight: 600; letter-spacing: .02em; }
+.paai-rb-titlebar .paai-x { background: #4a4a4a; border: 1px solid #1a1a1a; color: #d0d0d0; border-radius: 3px; padding: 2px 10px; cursor: pointer; }
+.paai-rb-titlebar .paai-x:hover { background: #5a5a5a; color: #f7931e; }
+
+.paai-rb-body { flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 8px; gap: 8px; }
+
+.paai-top { display: flex; align-items: center; gap: 6px; }
+.paai-top label { color: #d0d0d0; }
+.paai-top input[type=text] {
+  flex: 1; background: #1e1e1e; border: 1px solid #151515; padding: 3px 6px; border-radius: 2px; color: #d0d0d0;
+}
+.paai-btn {
+  background: #4a4a4a; border: 1px solid #1a1a1a; padding: 4px 12px; border-radius: 3px;
+  color: #d0d0d0; cursor: pointer; white-space: nowrap;
+}
+.paai-btn:hover { background: #555; }
+.paai-btn:active { background: #3a3a3a; }
+.paai-btn.primary { background: #5a3d1e; border-color: #f7931e55; color: #ffe0b0; }
+.paai-btn.primary:hover { background: #6a4a28; }
+
+.paai-split { flex: 1; min-height: 0; display: flex; gap: 8px; }
+.paai-left { width: 260px; min-width: 200px; display: flex; flex-direction: column; gap: 8px; }
+.paai-right { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+
+.paai-panel {
+  background: #323232; border: 1px solid #1a1a1a; border-radius: 2px;
+  display: flex; flex-direction: column; min-height: 0; flex: 1;
+}
+.paai-panel > .hd {
+  color: #f7931e; padding: 4px 8px 2px; font-weight: 600; font-size: 12px;
+  border-bottom: 1px solid #1a1a1a; margin-top: 2px;
+}
+.paai-panel .bar { display: flex; gap: 4px; padding: 4px 6px; align-items: center; flex-wrap: wrap; }
+.paai-panel .bar .paai-btn { padding: 2px 8px; }
+.paai-panel .bar .sp { flex: 1; }
+.paai-tree {
+  flex: 1; min-height: 80px; overflow: auto; background: #262626; padding: 4px 2px;
+}
+.paai-tree details { margin-left: 2px; }
+.paai-tree summary, .paai-tree .leaf {
+  display: flex; align-items: center; gap: 6px; padding: 2px 6px; cursor: pointer; border-radius: 2px;
+  list-style: none;
+}
+.paai-tree summary::-webkit-details-marker { display: none; }
+.paai-tree summary::before { content: "▸"; color: #888; width: 10px; display: inline-block; }
+.paai-tree details[open] > summary::before { content: "▾"; }
+.paai-tree summary:hover, .paai-tree .leaf:hover { background: #3a3a3a; }
+.paai-tree .kids { margin-left: 18px; }
+.paai-cb {
+  width: 13px; height: 13px; appearance: none; -webkit-appearance: none;
+  background: #1e1e1e; border: 1px solid #111; border-radius: 1px; cursor: pointer; position: relative; flex: none;
+}
+.paai-cb:checked { background: #f7931e; border-color: #c87818; }
+.paai-cb:indeterminate { background: #8a5a20; border-color: #c87818; }
+.paai-cb:checked::after, .paai-cb:indeterminate::after {
+  content: ""; position: absolute; left: 3px; top: 1px; width: 5px; height: 8px;
+  border: solid #111; border-width: 0 2px 2px 0; transform: rotate(45deg);
+}
+.paai-cb:indeterminate::after { left: 2px; top: 5px; width: 7px; height: 0; border-width: 0 0 2px 0; transform: none; }
+
+.paai-filt { display: flex; align-items: center; gap: 10px; }
+.paai-filt label { display: inline-flex; align-items: center; gap: 6px; }
+.paai-filt input[type=text] {
+  flex: 1; background: #1e1e1e; border: 1px solid #151515; padding: 3px 6px; border-radius: 2px; color: #d0d0d0;
+}
+
+.paai-table-wrap { flex: 1; min-height: 0; overflow: auto; background: #262626; border: 1px solid #1a1a1a; }
+.paai-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.paai-table th {
+  position: sticky; top: 0; background: #3c3c3c; border: none; border-right: 1px solid #222;
+  padding: 4px 6px; text-align: left; font-weight: 600; z-index: 1;
+}
+.paai-table td {
+  padding: 3px 6px; border-bottom: 1px solid #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.paai-table tr:nth-child(even) td { background: #2c2c2c; }
+.paai-table tr:nth-child(odd) td { background: #262626; }
+.paai-table tr.sel td { background: #f7931e !important; color: #111; }
+.paai-table td.path { direction: rtl; text-align: left; }
+
+.paai-note-row { display: flex; gap: 8px; align-items: stretch; }
+.paai-note-row .col { flex: 1; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.paai-note-row .col > span { color: #d0d0d0; }
+.paai-note-row textarea {
+  flex: 1; min-height: 72px; max-height: 100px; background: #262626; border: 1px solid #151515;
+  border-radius: 2px; color: #d0d0d0; padding: 6px; resize: vertical;
+}
+.paai-note-row .btns { display: flex; flex-direction: column; gap: 4px; }
+.paai-note-row .btns .paai-btn { min-width: 140px; text-align: center; }
+
+.paai-dlg-overlay { position: fixed; inset: 0; z-index: 10050; background: #0008; display: flex; align-items: center; justify-content: center; }
+.paai-dlg {
+  background: #323232; border: 1px solid #1a1a1a; border-radius: 4px; padding: 14px 16px; min-width: 360px;
+  box-shadow: 0 12px 32px #000a;
+}
+.paai-dlg h3 { margin: 0 0 10px; color: #f7931e; font-size: 13px; }
+.paai-dlg .row { display: flex; align-items: center; gap: 8px; margin: 8px 0; }
+.paai-dlg .row label { width: 90px; text-align: right; color: #d0d0d0; }
+.paai-dlg input[type=text], .paai-dlg select {
+  flex: 1; background: #1e1e1e; border: 1px solid #151515; padding: 3px 6px; border-radius: 2px; color: #d0d0d0;
+}
+.paai-dlg .actions { display: flex; justify-content: flex-end; gap: 6px; margin-top: 12px; }
+
+.paai-menu-btn {
+  height: 28px; padding: 0 10px; border-radius: 6px; border: 1px solid transparent;
+  background: transparent; color: var(--fg-color, #ddd); cursor: pointer; font: 500 12px sans-serif;
+}
+.paai-menu-btn:hover { background: #ffffff14; }
+.paai-menu-btn.accent { color: #f7931e; font-weight: 600; }
+.paai-drop {
+  position: fixed; z-index: 10045; min-width: 180px; background: #2a2a2a; border: 1px solid #1a1a1a;
+  border-radius: 4px; box-shadow: 0 10px 28px #000a; padding: 4px; color: #d0d0d0;
+}
+.paai-drop .mi { padding: 7px 12px; border-radius: 3px; cursor: pointer; }
+.paai-drop .mi:hover { background: #f7931e; color: #111; }
+
+/* Write node path preview: uses ComfyUI theme variables so it matches the normal node look */
+.paai-node-preview { background: var(--comfy-input-bg, #222); color: var(--input-text, #ddd); border-radius: 6px; padding: 4px 8px; font: 11px sans-serif; box-sizing: border-box; width: 100%; }
+.paai-path-preview { color: var(--descrip-text, #999); font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; direction: rtl; text-align: left; }
+.paai-info-new { color: var(--input-text, #ddd); font-size: 11px; }
+.paai-info-ow { color: var(--error-text, #ff4444); font-size: 11px; }
+
+
+html, body { margin: 0; padding: 0; background: #1a1a1a; height: 100%; }
+body.paai-standalone { display: flex; }
+body.paai-standalone .paai-rb-overlay { position: static; inset: auto; background: none; width: 100%; height: 100%; }
+body.paai-standalone .paai-rb-root { width: 100%; height: 100%; min-height: 100vh; border-radius: 0; box-shadow: none; }
+
+.paai-rb-titlebar .paai-logo {
+  height: 28px; width: auto; display: block; flex: none;
+  margin-right: 8px;
+}
+.paai-rb-titlebar .paai-title-wrap {
+  display: flex; align-items: center; gap: 0; min-width: 0;
+}
+
+
+.paai-title-wrap { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.paai-brand-col { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; line-height: 1.1; }
+.paai-brand-sub {
+  font-size: 9px; letter-spacing: 0.08em; color: #a87840; font-weight: 500;
+  white-space: nowrap; opacity: 0.95;
+}

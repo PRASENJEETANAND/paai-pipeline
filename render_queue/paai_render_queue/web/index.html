@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PAAI Render Queue</title>
+<link rel="stylesheet" href="/style.css"/>
+<link rel="icon" href="/paai_logo_icon.png"/>
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <div class="brand-mark">
+      <img class="logo" src="/paai_logo_header.png" alt="PAAI"/>
+      <div class="brand-sub" id="paaiFullName">Prasenjeet Anand Artist Interface</div>
+    </div>
+    <div>
+      <div class="title">PAAI Render Queue</div>
+      <div class="sub"><span class="qstate" id="qState">Stopped</span> · <span id="schedInfo">connecting…</span></div>
+    </div>
+  </div>
+  <div class="top-actions">
+    <label class="auto-start"><input type="checkbox" id="chkAutoStart"/> Auto start</label>
+    <button class="btn primary" id="btnStartQueue">Start</button>
+    <button class="btn" id="btnPauseQueue">Pause Queue</button>
+    <button class="btn ghost" id="btnStopQueue">Stop</button>
+    <button class="btn ghost" id="btnRefresh">Refresh</button>
+    <button class="btn" id="btnSettings">Settings</button>
+  </div>
+</header>
+<script src="/paai_branding.js"></script>
+
+<main>
+  <section class="toolbar">
+    <div class="filters">
+      <label><input type="checkbox" id="fltRunning" checked/> Running</label>
+      <label><input type="checkbox" id="fltQueued" checked/> Queued</label>
+      <label><input type="checkbox" id="fltDone"/> Done</label>
+      <label><input type="checkbox" id="fltFailed" checked/> Failed</label>
+      <input type="search" id="search" placeholder="Search name / target / user…"/>
+    </div>
+    <div class="hint">Jobs run in parallel within CPU / GPU / concurrency limits.</div>
+  </section>
+
+  <section class="table-wrap">
+    <table class="jobs" id="jobsTable">
+      <thead>
+        <tr>
+          <th>Status</th><th>App</th><th>Name / Target</th><th>Frames</th>
+          <th>Progress</th><th>CPU/GPU</th><th>Pri</th><th>User</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="jobsBody"></tbody>
+    </table>
+  </section>
+
+  <section class="detail" id="detail">
+    <div class="detail-hd">
+      <b id="detailTitle">Select a job</b>
+      <span id="detailMeta" class="muted"></span>
+    </div>
+    <pre class="log" id="logView">Log output appears here.</pre>
+  </section>
+</main>
+
+<!-- Settings modal -->
+<div class="modal hidden" id="settingsModal">
+  <div class="modal-card">
+    <div class="modal-hd">
+      <b>Settings</b>
+      <button class="btn ghost" id="settingsClose">✕</button>
+    </div>
+    <div class="modal-bd" id="settingsForm"></div>
+    <div class="modal-ft">
+      <button class="btn" id="settingsCancel">Cancel</button>
+      <button class="btn primary" id="settingsSave">Save</button>
+    </div>
+  </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>

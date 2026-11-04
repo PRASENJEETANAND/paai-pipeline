@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+dist/
+build/
+*.egg-info/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.blend1
+*.nk~
+.qtenv/
+# Render Queue local data
+**/PAAI Render Queue/
+.paai/
+*.log
+.coverage
+.pytest_cache/
+dist/
