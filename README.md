@@ -4,6 +4,7 @@
 
 # PAAI — Prasenjeet Anand Artist Interface
 `This pipeline is designed for home studios, independent creators, and small teams, rather than large-scale productions. `
+
 **PAAI Pipeline** is a small multi-app VFX pipeline for **Nuke**, **Blender**, and **ComfyUI**, plus a local **Render Queue**. Artists share one show folder layout, one versioning scheme (`v###` + optional Claim), and one browser/queue workflow—without requiring the queue Python package on each DCC’s `sys.path`.
 
 ## Features
